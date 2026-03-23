@@ -268,13 +268,13 @@ function transfer(expediteur, numcompte, amount) {
           console.log("Étape 4 :", msg);
           renderDashboard();
           setTransferLoading(false);
-          alert(`✔ Transfert de ${amount} MAD vers ${destinataire.name} réussi !`);
+          alert(`Transfert de ${amount} MAD vers ${destinataire.name} réussi !`);
           document.getElementById("transferForm")?.reset();
           activateSection("overview");
         });
     })
     .catch(err => {
-      console.error("✘ Erreur :", err.message);
+      console.error("Erreur :", err.message);
       alert("Erreur : " + err.message);
       setTransferLoading(false);
     });

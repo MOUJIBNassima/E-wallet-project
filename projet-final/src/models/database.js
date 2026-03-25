@@ -66,3 +66,16 @@ export const findbeneficiarieByid= (id,beneficiaryId) => {
 export const finduserbyaccount=(numcompte)=>{
     return database.users.find((u)=>u.account===numcompte);
 }
+
+// Récupère une carte d'un utilisateur par son numéro
+export const getCardByNum = (userId, numcard) => {
+  const user = database.users.find(u => u.id === userId);
+  return user?.wallet.cards.find(c => c.numcards === numcard);
+};
+
+// Vérifie si une carte est expirée
+export const isCardExpired = (card) => {
+  const today = new Date();
+  const expiry = new Date(card.expiry);
+  return expiry < today;
+};
